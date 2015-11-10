@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="content">
+        <h1>
+            Insert URL and I will extract the titles:
+        </h1>
+    </div>
+
+    {% block page_content %}
+    <div class="content">
+        <form method="POST">
+            {{ url_form.url.label }} {{ url_form.url(size=50) }} <br><br>
+            {{ url_form.submit() }}
+        </form>
+        {% if titles_summarized %}
+            {% for t in titles_summarized %}
+            {{t}} <br>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% endblock %}
+
+{% endblock %}
